@@ -1,6 +1,12 @@
+{% extends 'View/Layout/layout.html.twig' %}
+
+{% block content %}
 <h1>Tablica</h1>
 <ul>
 {% for book in age %}
     <li>{{ book.id }}|{{ book.name }}| {{ book.author }}</li>
+    <li><a href="{{ generateUrl('deleteId',{'id' : book.id}) }}">Usun</a></li>
+
 {% endfor %}
 </ul>
+{% endblock %}

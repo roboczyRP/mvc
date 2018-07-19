@@ -15,7 +15,7 @@ use Doctrine\ORM\EntityManager;
 
 class DoctrinServiceProvider extends ServiceProviders
 {
-    public function provide()
+    public function provide(array $parameters)
     {
         $config = Setup::createAnnotationMetadataConfiguration([],true);
         return EntityManager::create($this->config,$config);

@@ -18,5 +18,5 @@ abstract class ServiceProviders
         $this->config = $conf;
     }
 
-    public abstract function provide();
+    public abstract function provide(array $parameters);
 }

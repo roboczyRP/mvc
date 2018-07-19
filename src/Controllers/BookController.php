@@ -21,13 +21,14 @@ class BookController extends App
         $manager->flush();
         */
 
+
         $manager=$this->getEntityManager();
         $All=$manager->getRepository('Model\Books')->findAll();
 
 
 
-        return new Response($this->render('/View/list.html.twig',array('age' => $All
-        )));
+        return new Response($this->render('/View/list.html.twig',
+            array('age' => $All)));
     }
 
 }
