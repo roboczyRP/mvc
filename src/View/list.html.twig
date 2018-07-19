@@ -1,1 +1,6 @@
-{{ age }}
+<h1>Tablica</h1>
+<ul>
+{% for book in age %}
+    <li>{{ book.id }}|{{ book.name }}| {{ book.author }}</li>
+{% endfor %}
+</ul>

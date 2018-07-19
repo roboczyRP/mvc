@@ -10,12 +10,14 @@ namespace Simplex;
 
 
 use Simplex\Providers\TwigServiceProvider;
+use Simplex\Providers\DoctrinServiceProvider;
 
 class App
 {
 
     private $config;
     private $view;
+    private $model;
 
 
     public function __construct()
@@ -23,7 +25,8 @@ class App
         $this->loadConfig();
         $twig = new TwigServiceProvider($this->config['twig']);
         $this->view = $twig->provide();
-
+        $doctrine= new DoctrinServiceProvider($this->config['database']);
+        $this->model=$doctrine->provide();
     }
 
     public function render($name,array $data)
@@ -34,6 +37,11 @@ class App
     {
         return $e->getMessage();
     }
+    }
+
+    public function getEntityManager()
+    {
+        return $this->model;
     }
 
 
